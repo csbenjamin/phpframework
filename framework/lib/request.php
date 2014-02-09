@@ -6,7 +6,7 @@ class request {
     function __construct($server){
         $this->_server = $server;
         
-        $req = json_encode(file_get_contents('php://input'));
+        $req = json_decode(file_get_contents('php://input'));
         $this->_req = gettype($req) == "object" ? $req : new stdClass;
         
     }
@@ -17,7 +17,7 @@ class request {
     
     public function setBody($req){
         if(gettype($req) == "string"){
-            $req = json_encode($req);
+            $req = json_decode($req);
         }
          
         $this->_req = gettype($req) == "object" ? $req : new stdClass;
@@ -35,15 +35,15 @@ class request {
     }
     
     public function getMethod(){
-        return strtolower($this->server->REQUEST_METHOD);
+        return strtolower($this->_server->REQUEST_METHOD);
     }
     
     public function isPost(){
-        return $this->getMethod == "post";
+        return $this->getMethod() == "post";
     }
     
     public function isGet(){
-        return $this->getMethod == "get";
+        return $this->getMethod() == "get";
     }
     
     
