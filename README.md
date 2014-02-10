@@ -25,7 +25,7 @@ da class dentro do método "execute" atravez da referencia $this->nomedaclass.
 
 Dentro do método execute temos disponível $this->response e $this->request. Dê uma olhada nos arquivos 
 framework/lib/response.php e framework/lib/request.php para ver o que eles fazem. Nos exemplos podemos
-ver algumas aplicações do objeto $this->response. Ainda falta colocar exemplos do uso de $this->request.
+ver algumas aplicações do objeto $this->response e $this->request.
 
 Para fazer o test da class foo_bar, dê uma olhada no exemplo dentro no arquivo  test/controllers/helloTest.php
 
