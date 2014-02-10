@@ -145,6 +145,11 @@ class routeTest extends PHPUnit_Framework_TestCase{
         $expect = '{"res":{"message":"Undefined variable: id","file":"'.$dir.'\/controllers\/foo\/bar.php","line":'.$line.'},"msg":[]}';
         $this->assertEquals($expect,$result);
         
+        $this->bootstrap->response->set(null);
+        $this->bootstrap->server->setUrl("/i/dont/exist");
+        $result = $this->app->run();
+        $this->assertEquals('{"res":{"Not":"Found"},"msg":[]}',$result);
+        
     }
     
 }

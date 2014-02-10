@@ -18,7 +18,7 @@ class App {
         }catch(Exception $e){
             if($e->getMessage() == "Not Found"){
                 $this->response->notFound();
-                $this->close();
+                return $this->close();
             }else{
                 return $this->doSomethingWithError($e);
             }
