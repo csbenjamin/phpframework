@@ -44,5 +44,25 @@ class requestTest extends PHPUnit_Framework_TestCase{
         $this->assertEquals(false, $this->request->isGet());
         $this->assertEquals(true, $this->request->isPost());
         
+        $_GET["hello"] = "world";
+        $this->request = new Request($this->server);
+        $this->assertEquals((object)array("hello"=>"world"), $this->request->getBody());
+        
+        $_POST["hello"] = "world!";
+        $this->request = new Request($this->server);
+        $this->assertEquals((object)array("hello"=>"world!"), $this->request->getBody());
+        
+        $_GET = array();
+        $_POST["hello"] = "world!";
+        $this->request = new Request($this->server);
+        $this->assertEquals((object)array("hello"=>"world!"), $this->request->getBody());
+        
+        $_POST["hello"] = "world!";
+        $_POST["hello2"] = "world!";
+        $this->request = new Request($this->server);
+        $this->assertEquals((object)array("hello"=>"world!","hello2"=>"world!"), $this->request->getBody());
+        
+        
+        
     }
 }

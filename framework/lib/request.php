@@ -5,8 +5,21 @@ class request {
     protected $_req;
     function __construct($server){
         $this->_server = $server;
-        
+
         $req = json_decode(file_get_contents('php://input'));
+
+        if(gettype($req) != "object"){
+            $req = new stdClass;
+        }
+
+        if(isset($_POST)){
+            $req = (object)array_merge($_POST,(array)$req);
+        }
+
+        if(isset($_GET)){
+            $req = (object)array_merge($_GET,(array)$req);
+        }
+
         $this->_req = gettype($req) == "object" ? $req : new stdClass;
         
     }
