@@ -133,7 +133,7 @@ class routeTest extends PHPUnit_Framework_TestCase{
         $this->bootstrap->response->set(null);
         $this->bootstrap->server->setUrl("/foo/bar/useinjection");
         $result = $this->app->run();
-        $this->assertEquals('{"res":{"unseinjection":["stringfromcontroller__theSecond1PutThis__theThirdPutThis","stringfromcontroller__theSecond2PutThis__theThirdPutThis"]},"msg":[]}',$result);
+        $this->assertEquals('{"res":{"useinjection":["stringfromcontroller__theSecond1PutThis__theThirdPutThis","stringfromcontroller__theSecond2PutThis__theThirdPutThis"]},"msg":[]}',$result);
         
         $this->bootstrap->response->set(null);
         $this->bootstrap->server->setUrl("/foo/bar/error");

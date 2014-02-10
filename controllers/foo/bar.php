@@ -12,7 +12,7 @@ class foo_bar extends Controller {
             echo $id; #__getline__
         }
         if(isset($params[0]) && $params[0] == "useinjection"){
-            $this->response->unseinjection = $this->first->doIt("stringfromcontroller");
+            $this->response->useinjection = $this->first->doIt("stringfromcontroller");
             return;
         }
         if(isset($params[0])){
