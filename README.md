@@ -4,6 +4,10 @@ Este framework tem o objetivo de fazer algo semelhante ao que o angular faz, só
 servidor usando php.
 
 
+## Prerequisites
+
+    * PHP 5.3 or greater.
+
 ## Como usar
 
 Clone este repositório.
