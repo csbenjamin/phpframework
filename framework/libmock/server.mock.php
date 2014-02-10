@@ -7,8 +7,6 @@ class ServerMock{
         "SCRIPT_NAME" => "/index.php"
     );
     
-    public $base = "";
-    
     public function setUrl($url){
         $this->REQUEST_URI = $url;
     }
