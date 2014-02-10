@@ -112,12 +112,12 @@ class routeTest extends PHPUnit_Framework_TestCase{
         $this->bootstrap->response->set(null);
         $this->bootstrap->server->setUrl("/hello");
         $result = $this->app->run();
-        $this->assertEquals('{"res":{"foo":{"bar":123},"params":[],"hello":"nobody"},"msg":[]}',$result);
+        $this->assertEquals('{"res":{"foo":{"bar":123},"params":[],"hello":"nobody","method":"get"},"msg":[]}',$result);
         
         $this->bootstrap->response->set(null);
         $this->bootstrap->server->setUrl("/hello/world");
         $result = $this->app->run();
-        $this->assertEquals('{"res":{"foo":{"bar":123},"params":["world"],"hello":"world"},"msg":[]}',$result);
+        $this->assertEquals('{"res":{"foo":{"bar":123},"params":["world"],"hello":"world","method":"get"},"msg":[]}',$result);
         
         
         $this->bootstrap->response->set(null);
