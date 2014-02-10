@@ -42,7 +42,8 @@ class App {
         $this->controller->app = $this;
         
         try{
-            if(!(new ReflectionClass($class_name))->hasMethod("execute")){
+            $reflectionClass = new ReflectionClass($class_name);
+            if(!$reflectionClass->hasMethod("execute")){
                 throw new Exception("You need to implement the execute method in $class_name class");
             }
             $execute_method = new ReflectionMethod ( $class_name, "execute" );

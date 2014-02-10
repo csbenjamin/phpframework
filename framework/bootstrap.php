@@ -40,7 +40,8 @@ class Bootstrap {
     }
     
     public function instanciateClass($class_name){
-        if(!(new ReflectionClass($class_name))->hasMethod("__construct")){
+        $reflectionClass = new ReflectionClass($class_name);
+        if(!$reflectionClass->hasMethod("__construct")){
             return new $class_name;
         }
         $reflection = new ReflectionMethod($class_name,"__construct");
