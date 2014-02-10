@@ -38,6 +38,10 @@ class request {
         return strtolower($this->_server->REQUEST_METHOD);
     }
     
+    public function setMethod($method){
+        $this->_server->REQUEST_METHOD = $method;
+    }
+    
     public function isPost(){
         return $this->getMethod() == "post";
     }
