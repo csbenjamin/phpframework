@@ -55,4 +55,8 @@ class Bootstrap {
         
         return $reflected_class->newInstanceArgs($class_args);
     }
+    
+    public function countDependencies(){
+        return count($this->dependencies);
+    }
 }

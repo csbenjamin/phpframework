@@ -150,6 +150,14 @@ class routeTest extends PHPUnit_Framework_TestCase{
         $result = $this->app->run();
         $this->assertEquals('{"res":{"Not":"Found"},"msg":[]}',$result);
         
+        
+        $this->bootstrap = new BootstrapMock();
+        $this->app = new App($this->bootstrap);
+        $this->bootstrap->server->setUrl("/foo/bar");
+        $result = $this->app->run();
+        $this->assertEquals(4,$this->bootstrap->countDependencies());
+        
+        
     }
     
 }

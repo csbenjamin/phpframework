@@ -1,6 +1,6 @@
 <?php
-require __DIR__."/../framework/bootstrap.mock.php";
-require __DIR__."/../framework/app.php";
+require_once __DIR__."/../framework/bootstrap.mock.php";
+require_once __DIR__."/../framework/app.php";
 class baseControllerTest extends PHPUnit_Framework_TestCase{
     public $app;
     public $bootstrap;
